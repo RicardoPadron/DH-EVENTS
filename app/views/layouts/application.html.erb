@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+    <title>DH Events</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+   <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel="stylesheet", integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN", crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.css" integrity="sha256-Nw3+bcyGO+cJbXm3SQCxXQQahDmxDP66aesy3IZ4aJQ=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/css/sb-admin-2.min.css" integrity="sha256-WeMGw+d+qR+l2h9TzmC+jTME4zy5zYzG8E6FbPikzeM=" crossorigin="anonymous" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.js" integrity="sha256-vRGeHy79UTjzDQv7T2urmiswawJ6iD3Jz6VYUeFkoYM=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/startbootstrap-sb-admin-2/3.3.7+1/js/sb-admin-2.min.js" integrity="sha256-Y0Z5pT4qPGaoUSHoxW+J8fIWjQnjc7v03WBEUnt9SQ0=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.2.7/raphael.min.js" integrity="sha256-67By+NpOtm9ka1R6xpUefeGOY8kWWHHRAKlvaTJ7ONI=" crossorigin="anonymous"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+
+      <body>
+      <div class="container-fluid">
+
+            <nav class="navbar  navbar-inverse navbar-light">
+  <div class="nav navbar-inverse sidebar-nav">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse"">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <ul>
+      <li>
+        <form class="navbar-form navbar-left">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Buscar</button>
+      </form>
+        </li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+  <% if current_user.nil? %>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="<%= new_user_session_path %>">Iniciar sesion</a></li>
+        <%else%>
+        <li><a href="<%=destroy_user_session_path %>" data-method="delete">Cerrar Sesion</a></li>
+      </ul>
+  <%end%>  
+    </div>
+  </div>
+  </nav>​
+
+  <div class="container-fluid">
+
+
+
+<div class="container-fluid">
+<div class="row">
+  <div class=" navbar col-sm-3 ">
+    <div class="sidebar-nav">
+      <div class="nav navbar-inverse sidebar-nav">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="sr-only">MENU</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <span class="visible-xs navbar-brand">Sidebar menu</span>
+        </div>
+        <div class="navbar navbar">
+                <ul class="nav navbar-nav">
+                      <li class="active"><a href="index.html"><i class="fa fa-fw fa-dashboard"></i> DH-Events.....</a></li>
+                      <li><a href="<%=startup_inicio_path %>"><i class="fa fa-fw fa-home"></i>Inicio</a></li>
+                      <li><a href="<%=startup_Tradiciones_path %>"><i class="fa fa-fw fa-star"></i>Tradiciones y Costumbre</a></li>
+                      <li><a href="<%=startup_Gastronomia_path %>"><i class="fa fa-fw fa-smile-o"></i>Gatronomia</a></li>
+                      <li><a href="<%= store_index_path%>"><i class="fa fa-fw fa-eye"></i>Carrito de compras</a></li>
+                      <li><a href="<%= startup_ra_path%>"><i class="fa fa-fw fa-eye"></i>Realidad</a></li>
+                      
+                    
+                     <!--new--> <li><a href="<%= new_user_session_path %>"><i class="fa fa-fw fa-user-o"></i>Iniciar Sesion</a></li>
+                      
+                      
+                      <li>...</li>
+                      <li>...</li>
+                      <li>...</li>
+                  </ul>
+              </div>
+        </div>
+        </div>
+        </div>
+        
+      
+
+
+      <%= yield %>
+      </div>
+      </div>
+      </div>
+      </div>
+      
+     <footer style="padding-bottom: 0;">
+        <div class="container">
+            <div class="row middle-xs between-xs">
+                
+             
+                           
+                <div class="col-xs-12 col-xs-4">
+                    <div class="logo">
+                       Equipo RAC
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
