@@ -56,14 +56,15 @@
         <%else%>
         <li><a href="<%=destroy_user_session_path %>" data-method="delete">Cerrar Sesion</a></li>
       </ul>
-  <%end%>  
+   
     </div>
+    <%end%> 
   </div>
   </nav>​
 
   <div class="container-fluid">
 
-
+<% if current_user.nil? %>
 
 <div class="container-fluid">
 <div class="row">
@@ -101,29 +102,41 @@
         </div>
         </div>
         
-      
+      <%else%>
+      <%end%>
 
 
       <%= yield %>
       </div>
       </div>
+
+
+
+
+
       </div>
       </div>
+
       
      <footer style="padding-bottom: 0;">
         <div class="container">
             <div class="row middle-xs between-xs">
-                
-             
-                           
-                <div class="col-xs-12 col-xs-4">
-                    <div class="logo">
-                       Equipo RAC
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-</body>
+          
+                                    <!-- Add icon library -->
+                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+                    <!-- Add font awesome icons -->
+                    <center>
+                    
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-twitter"></a>
+                    <a href="#" class="fa fa-google"></a>
+                    <a href="#" class="fa fa-linkedin"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                    </center>
+
+               </div>
+             </div>   
+      </footer>
+ </body>
 
 </html>
